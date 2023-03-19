@@ -4,7 +4,7 @@ import Main from "./Main";
 import Footer from "./Footer";
 import '../index.css';
 import PopupWithForm from './PopupWithForm';
-import PopupWithImage from './PopupWithImage';
+import ImagePopup from './ImagePopup';
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
@@ -112,11 +112,11 @@ function App() {
       >
       </PopupWithForm>
 
-      <PopupWithImage
+      <ImagePopup
         card = {selectedCard}
         onClose={closeAllPopups}
       >
-      </PopupWithImage>
+      </ImagePopup>
     </div>
   </div>
   );
