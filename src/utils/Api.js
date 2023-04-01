@@ -43,7 +43,7 @@ class Api {
       .then(this.handleResponse)
   }
 
-  postCard( {name, link} ) {
+  postCard(name, link) {
     return fetch(`${this.url}/cards`, {
       method: 'POST',
       headers: this.headers,
@@ -66,6 +66,14 @@ class Api {
   dislikeCard(id) {
     return fetch(`${this.url}/cards/${id}/likes`, {
       method: 'DELETE',
+      headers: this.headers
+    })
+      .then(this.handleResponse)
+  }
+
+  changeLikeCardStatus(id, isLiked) {
+    return fetch(`${this.url}/cards/${id}/likes`, {
+      method: isLiked ? 'PUT' : 'DELETE',
       headers: this.headers
     })
       .then(this.handleResponse)
