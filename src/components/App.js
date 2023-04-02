@@ -43,6 +43,7 @@ function App() {
       //Отрисовка карточек
       setCards(res[1]);
     })
+    .catch(err => console.log(err));
   }, []);
 
   function handleCardLike(card) {
@@ -52,7 +53,8 @@ function App() {
     // Отправляем запрос в API и получаем обновлённые данные карточки
     api.changeLikeCardStatus(card.id, !isLiked).then((newCard) => {
         setCards((state) => state.map((c) => c._id === card.id ? newCard : c));
-    });
+    })
+    .catch(err => console.log(err));
   }
 
   function handleCardDelete(card) {
@@ -66,6 +68,7 @@ function App() {
       setCurrentUser(userData);
       closeAllPopups();
      })
+     .catch(err => console.log(err));
   }
 
   function handleUpdateAvatar(userData) {
@@ -74,6 +77,7 @@ function App() {
       setCurrentUser(userData);
       closeAllPopups();
      })
+     .catch(err => console.log(err));
   }
 
   function handleAddCard(cardData) {
@@ -82,6 +86,7 @@ function App() {
         setCards([card, ...cards]);
         closeAllPopups();
       })
+      .catch(err => console.log(err));
   }
 
   function closeAllPopups() {

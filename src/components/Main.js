@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext} from 'react';
 import pencil from "../images/pencil.svg";
 import plus from "../images/plus.png";
 import Card from './Card';
