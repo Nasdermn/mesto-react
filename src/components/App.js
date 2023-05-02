@@ -58,8 +58,12 @@ function App() {
   }
 
   function handleCardDelete(card) {
-    api.deleteCard(card.id);
-    setCards(cards.filter(element => element._id != card.id));
+    api
+      .deleteCard(card.id)
+      .then((res) => {
+        setCards(cards.filter((element) => element._id != card.id));
+      })
+      .catch((err) => console.log(err));
   }
 
   function handleUpdateUser(userData) {
